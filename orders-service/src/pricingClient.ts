@@ -1,3 +1,5 @@
+import { getAccessToken } from "./auth.js";
+
 const PRICING_SERVICE_URL = process.env.PRICING_SERVICE_URL ?? "http://localhost:8000";
 
 export interface Quote {
@@ -7,7 +9,11 @@ export interface Quote {
 }
 
 export async function getQuote(sku: string): Promise<Quote | null> {
-  const res = await fetch(`${PRICING_SERVICE_URL}/price/${encodeURIComponent(sku)}`);
+  const accessToken = await getAccessToken();
+
+  const res = await fetch(`${PRICING_SERVICE_URL}/price/${encodeURIComponent(sku)}`, {
+    headers: { authorization: `Bearer ${accessToken}` },
+  });
 
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`pricing-service responded ${res.status}`);

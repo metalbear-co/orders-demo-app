@@ -3,7 +3,3 @@ dist/
 __pycache__/
 *.pyc
 .DS_Store
-
-# internal only, kept in control-center
-FINDINGS.md
-chaos-rules/

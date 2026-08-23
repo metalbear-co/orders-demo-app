@@ -10,10 +10,13 @@ resources:
   - redis.yaml
   - redis-seed-job.yaml
   - pricing-service.yaml
+  - token-service.yaml
   - orders-service.yaml
 
 images:
   - name: orders-service
     newTag: local
   - name: pricing-service
+    newTag: local
+  - name: token-service
     newTag: local
