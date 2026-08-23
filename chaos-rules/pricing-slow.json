@@ -1,0 +1,6 @@
+{
+  "name": "pricing-service slow",
+  "priority": 0,
+  "selector": { "upstream": "pricing-service.orders-demo.svc.cluster.local:8000", "percentage": 100 },
+  "effect": { "latency": { "read_ms": 3000 } }
+}

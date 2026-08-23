@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: redis-seed
+  namespace: orders-demo
+spec:
+  backoffLimit: 10
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: seed
+          image: redis:7-alpine
+          command:
+            - sh
+            - -c
+            - |
+              until redis-cli -h redis ping 2>/dev/null | grep -q PONG; do
+                echo "waiting for redis"; sleep 2
+              done
+              redis-cli -h redis SET price:SKU-1001 49.99
+              redis-cli -h redis SET price:SKU-1002 12.50
+              redis-cli -h redis SET price:SKU-1003 99.00
+              redis-cli -h redis SET price:SKU-1004 5.25
+              redis-cli -h redis SET price:SKU-1005 250.00
+              echo "seeded"

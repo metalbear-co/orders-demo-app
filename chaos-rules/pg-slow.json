@@ -1,0 +1,6 @@
+{
+  "name": "postgres slow reads",
+  "priority": 0,
+  "selector": { "upstream": "postgres.orders-demo.svc.cluster.local:5432", "percentage": 100 },
+  "effect": { "latency": { "read_ms": 2000 } }
+}

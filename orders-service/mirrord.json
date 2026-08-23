@@ -1,0 +1,9 @@
+{
+  "target": {
+    "namespace": "orders-demo",
+    "path": { "deployment": "orders-service" }
+  },
+  "feature": {
+    "network": { "incoming": "off", "outgoing": true, "dns": true }
+  }
+}

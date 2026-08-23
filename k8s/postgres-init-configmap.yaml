@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init
+  namespace: orders-demo
+data:
+  init.sql: |
+    CREATE TABLE orders (
+      id          TEXT PRIMARY KEY,
+      customer_id TEXT NOT NULL,
+      sku         TEXT NOT NULL,
+      quantity    INT  NOT NULL,
+      status      TEXT NOT NULL
+    );
+    INSERT INTO orders (id, customer_id, sku, quantity, status) VALUES
+      ('ord-1', 'cust-1', 'SKU-1001', 2, 'open'),
+      ('ord-2', 'cust-1', 'SKU-1002', 1, 'open'),
+      ('ord-3', 'cust-1', 'SKU-1003', 3, 'shipped'),
+      ('ord-4', 'cust-2', 'SKU-1004', 5, 'open'),
+      ('ord-5', 'cust-2', 'SKU-1005', 1, 'shipped'),
+      ('ord-6', 'cust-3', 'SKU-1001', 1, 'open');
