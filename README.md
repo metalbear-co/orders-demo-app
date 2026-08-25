@@ -36,6 +36,13 @@ Orders (Postgres `orders`):
 | ord-5 | cust-2 | SKU-1005 | 1 | shipped |
 | ord-6 | cust-3 | SKU-1001 | 1 | open |
 
+Plus two larger accounts, generated on first boot:
+
+| customer_id | open orders |
+|---|---|
+| cust-50 | 12 |
+| cust-100 | 40 |
+
 Prices (Redis `price:<sku>`): SKU-1001 49.99, SKU-1002 12.50, SKU-1003 99.00,
 SKU-1004 5.25, SKU-1005 250.00.
 
