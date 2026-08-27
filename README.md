@@ -6,13 +6,13 @@ running cluster.
 
 ## Architecture
 
-```
-you → orders-service (Node/TS) ──SQL──▶ postgres
-                     └─────────HTTP──▶ pricing-service (Python) ──TCP──▶ redis
-```
+![Architecture](docs/architecture.svg)
 
 - **orders-service** — looks orders up in Postgres, and totals a customer's open
-  orders by asking pricing-service for each SKU's unit price.
+  orders by asking pricing-service for each SKU's unit price. This is the one
+  you run locally under mirrord.
+- **token-service** — issues the short-lived credential orders-service needs
+  before it can call pricing-service.
 - **pricing-service** — returns a unit price for a SKU from Redis.
 
 ## Endpoints

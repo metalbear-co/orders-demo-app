@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="340" fill="#FAFAFD"/>
+
+  <text x="20" y="168" font-size="15" font-weight="600" fill="#000000">you</text>
+  <line x1="58" y1="163" x2="104" y2="163" stroke="#000000" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <rect x="110" y="118" width="230" height="92" rx="10" fill="#FFFFFF" stroke="#000000" stroke-width="2.5"/>
+  <text x="225" y="152" font-size="17" font-weight="700" text-anchor="middle" fill="#000000">orders-service</text>
+  <text x="225" y="175" font-size="13" text-anchor="middle" fill="#000000">Node / TypeScript</text>
+  <text x="225" y="195" font-size="12" text-anchor="middle" fill="#756DF3">you run this one locally</text>
+
+  <rect x="450" y="28" width="210" height="66" rx="10" fill="#E4E3FD" stroke="#000000" stroke-width="2.5"/>
+  <text x="555" y="56" font-size="16" font-weight="600" text-anchor="middle" fill="#000000">postgres</text>
+  <text x="555" y="77" font-size="12" text-anchor="middle" fill="#000000">orders</text>
+
+  <rect x="450" y="130" width="210" height="66" rx="10" fill="#E4E3FD" stroke="#000000" stroke-width="2.5"/>
+  <text x="555" y="158" font-size="16" font-weight="600" text-anchor="middle" fill="#000000">token-service</text>
+  <text x="555" y="179" font-size="12" text-anchor="middle" fill="#000000">short-lived credential</text>
+
+  <rect x="450" y="232" width="210" height="66" rx="10" fill="#E4E3FD" stroke="#000000" stroke-width="2.5"/>
+  <text x="555" y="260" font-size="16" font-weight="600" text-anchor="middle" fill="#000000">pricing-service</text>
+  <text x="555" y="281" font-size="12" text-anchor="middle" fill="#000000">Python</text>
+
+  <rect x="740" y="232" width="130" height="66" rx="10" fill="#E4E3FD" stroke="#000000" stroke-width="2.5"/>
+  <text x="805" y="260" font-size="16" font-weight="600" text-anchor="middle" fill="#000000">redis</text>
+  <text x="805" y="281" font-size="12" text-anchor="middle" fill="#000000">prices</text>
+
+  <polyline points="340,140 396,140 396,61 450,61" fill="none" stroke="#000000" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="404" y="100" font-size="12" fill="#000000">SQL</text>
+
+  <line x1="340" y1="163" x2="450" y2="163" stroke="#000000" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="352" y="155" font-size="12" fill="#000000">HTTP</text>
+
+  <polyline points="340,188 396,188 396,265 450,265" fill="none" stroke="#000000" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="404" y="212" font-size="12" fill="#000000">HTTP, with the credential</text>
+
+  <line x1="660" y1="265" x2="740" y2="265" stroke="#000000" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="668" y="257" font-size="12" fill="#000000">TCP</text>
+
+  <text x="450" y="322" font-size="12" fill="#000000">Everything tinted runs in the cluster.</text>
+</svg>
