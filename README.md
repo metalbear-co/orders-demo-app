@@ -55,8 +55,8 @@ and load them, then apply:
 
 ```bash
 for svc in orders-service pricing-service token-service; do
-  docker build -t $svc:latest ./$svc
-  kind load docker-image $svc:latest --name <your-cluster>
+  docker build -t $svc:local ./$svc
+  kind load docker-image $svc:local --name <your-cluster>
 done
 
 kubectl apply -k k8s/

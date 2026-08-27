@@ -16,7 +16,6 @@ spec:
       containers:
         - name: token-service
           image: token-service:latest
-          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8100
           env:
