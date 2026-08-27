@@ -23,6 +23,21 @@ you → orders-service (Node/TS) ──SQL──▶ postgres
 | `GET` | `/customers/:id/summary` | A customer's open orders, priced via pricing-service |
 | `GET` | `/health` | Liveness |
 
+`/customers/:id/summary` returns `unpriced_orders` alongside `total`: the number
+of open lines whose SKU pricing-service has no price for. Those lines add
+nothing to `total`, so the count is how a caller tells a cheap basket from a
+partly unpriced one.
+
+Failures are separated by what a caller should do about them. `503` with
+`Retry-After` means a dependency was briefly unreachable and the same request is
+worth repeating; `504` means the request ran out of its time budget; `502` means
+a dependency answered with something unusable, which repeating will not fix.
+
+Every request runs under a fixed time budget (`REQUEST_BUDGET_MS`, default
+10000) and prices at most `PRICING_CONCURRENCY` (default 8) distinct SKUs at a
+time, so response time tracks the number of distinct SKUs in a basket rather
+than the number of lines.
+
 ## Seeded data
 
 Orders (Postgres `orders`):

@@ -22,8 +22,8 @@ data:
     -- Two larger accounts, so the seeded data spans a realistic range of
     -- basket sizes rather than only small ones.
     INSERT INTO orders (id, customer_id, sku, quantity, status)
-    SELECT 'ord-m'||g, 'cust-50', 'SKU-'||(1000 + (g % 8)), 1 + (g % 4), 'open'
+    SELECT 'ord-m'||g, 'cust-50', 'SKU-'||(1001 + (g % 5)), 1 + (g % 4), 'open'
     FROM generate_series(1,12) g;
     INSERT INTO orders (id, customer_id, sku, quantity, status)
-    SELECT 'ord-b'||g, 'cust-100', 'SKU-'||(1000 + (g % 8)), 1 + (g % 5), 'open'
+    SELECT 'ord-b'||g, 'cust-100', 'SKU-'||(1001 + (g % 5)), 1 + (g % 5), 'open'
     FROM generate_series(1,40) g;
