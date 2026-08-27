@@ -81,3 +81,18 @@ the cluster:
 curl -s localhost:3000/orders/ord-1
 curl -s localhost:3000/customers/cust-1/summary
 ```
+
+## Running two agents at once
+
+Chaos rules are scoped to a mirrord session, so two people (or two agents) can
+break different dependencies at the same time without either of them noticing.
+To try that on one machine, start the second one with the config that moves it
+off the default port:
+
+```bash
+mirrord exec -f mirrord-second-agent.json -- npm run dev   # listens on :3001
+```
+
+Give one of them a chaos rule and leave the other alone. The deployed service in
+the cluster is unaffected either way.
+
